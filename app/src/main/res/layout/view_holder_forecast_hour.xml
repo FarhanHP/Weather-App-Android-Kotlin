@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  app:cardElevation="10dp"
+  android:layout_marginBottom="@dimen/spacing1"
+  android:orientation="vertical"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+  <LinearLayout
+    android:orientation="vertical"
+    android:padding="@dimen/spacing1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+      android:gravity="center_vertical"
+      android:orientation="horizontal"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+      <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+        <TextView
+          android:fontFamily="@font/poppins_medium"
+          android:id="@+id/date"
+          android:textColor="@color/black"
+          android:textStyle="bold"
+          android:textSize="16sp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+
+        <TextView
+          android:fontFamily="@font/poppins_medium"
+          android:id="@+id/conditionText"
+          android:textStyle="bold"
+          android:textSize="14sp"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"/>
+      </LinearLayout>
+
+      <ImageView
+        android:id="@+id/conditionImg"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <com.farhanhp.weatherapp.components.WeatherPropertyCard2Container
+      android:id="@+id/propertyContainer"
+      android:orientation="vertical"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"/>
+  </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

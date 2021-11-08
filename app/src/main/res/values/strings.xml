@@ -1,0 +1,17 @@
+<resources>
+  <string name="app_name">WeatherApp</string>
+  <string name="hello_blank_fragment">Hello blank fragment</string>
+  <string name="weather_condition">weather condition</string>
+  <string name="air_quality_index">Air Quality Index</string>
+  <string name="history">History</string>
+  <string name="search_city">Search City</string>
+  <string name="back">back</string>
+  <string name="open_search_input">open search input</string>
+  <string name="search_location">Search Location</string>
+  <string name="latitude">Latitude</string>
+  <string name="longitude">Longitude</string>
+  <string name="empty_result">Empty Result</string>
+  <string name="weather_forecast">Weather Forecast</string>
+  <string name="hourly_weather_forecast">Hourly Weather Forecast</string>
+  <string name="see_weather_forecast">See Weather Forecast</string>
+</resources>

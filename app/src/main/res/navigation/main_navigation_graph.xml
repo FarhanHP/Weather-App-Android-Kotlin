@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/main_navigation_graph"
+  app:startDestination="@id/homePage">
+  <fragment
+    android:id="@+id/homePage"
+    android:name="com.farhanhp.weatherapp.pages.home.HomePage"
+    android:label="page_home"
+    tools:layout="@layout/page_home" >
+    <action
+      android:id="@+id/action_homePage_to_cityListPage"
+      app:destination="@id/cityListPage"
+      app:enterAnim="@android:anim/slide_in_left" />
+    <action
+      android:id="@+id/action_homePage_to_weatherForecastPage2"
+      app:destination="@id/weatherForecastPage"
+      app:enterAnim="@android:anim/slide_in_left" />
+  </fragment>
+  <fragment
+    android:id="@+id/cityDetailPage"
+    android:name="com.farhanhp.weatherapp.pages.city_detail.CityDetailPage"
+    android:label="page_city_detail"
+    tools:layout="@layout/page_city_detail" >
+    <argument
+      android:name="keyword"
+      app:argType="string" />
+    <action
+      android:id="@+id/action_cityDetailPage_to_cityListPage"
+      app:destination="@id/cityListPage"
+      app:enterAnim="@android:anim/slide_in_left"
+      app:popUpTo="@id/homePage" />
+    <action
+      android:id="@+id/action_cityDetailPage_to_weatherForecastPage2"
+      app:destination="@id/weatherForecastPage"
+      app:enterAnim="@android:anim/slide_in_left" />
+  </fragment>
+  <fragment
+    android:id="@+id/cityListPage"
+    android:name="com.farhanhp.weatherapp.pages.city_list.CityListPage"
+    android:label="page_city_list"
+    tools:layout="@layout/page_city_list" >
+    <argument
+      android:name="keyword"
+      app:argType="string" />
+    <action
+      android:id="@+id/action_cityListPage_to_cityDetailPage"
+      app:destination="@id/cityDetailPage"
+      app:enterAnim="@android:anim/slide_in_left" />
+  </fragment>
+  <fragment
+    android:id="@+id/weatherForecastPage"
+    android:name="com.farhanhp.weatherapp.pages.weather_forecast.WeatherForecastPage"
+    android:label="WeatherForecastPage" >
+    <argument
+      android:name="keyword"
+      app:argType="string" />
+    <action
+      android:id="@+id/action_weatherForecastPage_to_weatherForecastDetailPage"
+      app:destination="@id/weatherForecastDetailPage"
+      app:enterAnim="@android:anim/slide_in_left" />
+  </fragment>
+  <fragment
+    android:id="@+id/weatherForecastDetailPage"
+    android:name="com.farhanhp.weatherapp.pages.weather_forecast.WeatherForecastDetailPage"
+    android:label="WeatherForecastDetailPage" />
+</navigation>
