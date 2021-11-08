@@ -26,7 +26,8 @@
         app:cornerRadius="50dp"
         app:icon="@drawable/ic_baseline_arrow_back_ios_24"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
       <TextView
         android:scrollHorizontally="true"
@@ -73,7 +74,8 @@
         app:cornerRadius="50dp"
         app:icon="@drawable/ic_baseline_search_24"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout

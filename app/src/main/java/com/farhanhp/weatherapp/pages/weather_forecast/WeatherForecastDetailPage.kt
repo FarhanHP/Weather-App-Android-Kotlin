@@ -2,12 +2,10 @@ package com.farhanhp.weatherapp.pages.weather_forecast
 
 import android.content.Context
 import android.os.Bundle
-import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.net.toUri
 import androidx.databinding.DataBindingUtil
@@ -18,13 +16,13 @@ import com.farhanhp.weatherapp.R
 import com.farhanhp.weatherapp.classes.SecondaryPage
 import com.farhanhp.weatherapp.classes.WeatherPropertyCard2Args
 import com.farhanhp.weatherapp.components.WeatherForecastAppBar
-import com.farhanhp.weatherapp.components.WeatherPropertyCard2
 import com.farhanhp.weatherapp.components.WeatherPropertyCard2Container
 import com.farhanhp.weatherapp.databinding.PageWeatherForecastDetailBinding
 import com.farhanhp.weatherapp.utils.CustomDate
 
 class WeatherForecastDetailPage : SecondaryPage() {
   private lateinit var binding: PageWeatherForecastDetailBinding
+  private lateinit var viewModelFactory: WeatherForecastPageViewModelFactory
   private lateinit var viewModel: WeatherForecastPageViewModel
   private lateinit var appbar: WeatherForecastAppBar
   private lateinit var weatherConditionImage: ImageView
@@ -54,7 +52,8 @@ class WeatherForecastDetailPage : SecondaryPage() {
     weatherForecastHourAdapter = ForecastHourAdapter()
     weatherForecastHourlyList.adapter = weatherForecastHourAdapter
 
-    viewModel = ViewModelProvider(requireActivity()).get(WeatherForecastPageViewModel::class.java)
+    viewModelFactory = WeatherForecastPageViewModelFactory(context as Context)
+    viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(WeatherForecastPageViewModel::class.java)
     viewModel.selectedWeatherForecastDay.observe(viewLifecycleOwner) {
       val location = viewModel.location.value
       val weatherForecastDay = it.day

@@ -1,5 +1,6 @@
 package com.farhanhp.weatherapp.pages.city_list
 
+import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -31,7 +32,7 @@ class CityListPage : SecondaryPage() {
   ): View? {
     arguments = CityListPageArgs.fromBundle(requireArguments())
     binding = DataBindingUtil.inflate(inflater, R.layout.page_city_list, container,  false)
-    viewModelFactory = CityListPageViewModelFactory(arguments.keyword)
+    viewModelFactory = CityListPageViewModelFactory(arguments.keyword, context as Context)
     viewModel = ViewModelProvider(this, viewModelFactory).get(CityListPageViewModel::class.java)
     statusTextView = binding.status
     appbar = binding.appbar

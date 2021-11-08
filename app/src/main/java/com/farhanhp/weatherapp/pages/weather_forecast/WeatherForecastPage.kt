@@ -1,5 +1,6 @@
 package com.farhanhp.weatherapp.pages.weather_forecast
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -17,6 +18,7 @@ import com.farhanhp.weatherapp.databinding.PageWeatherForecastBinding
 class WeatherForecastPage: SecondaryPage() {
   private lateinit var binding: PageWeatherForecastBinding
   private lateinit var viewModel: WeatherForecastPageViewModel
+  private lateinit var viewModelFactory: WeatherForecastPageViewModelFactory
   private lateinit var arguments: WeatherForecastPageArgs
   private lateinit var adapter: ForecastDayAdapter
   private lateinit var appbar: WeatherForecastAppBar
@@ -34,8 +36,9 @@ class WeatherForecastPage: SecondaryPage() {
     weatherForecastList = binding.weatherForecastList
     statusTextView = binding.status
 
-    viewModel = ViewModelProvider(requireActivity()).get(WeatherForecastPageViewModel::class.java)
-    viewModel.fetchweatherForecastDays(arguments.keyword)
+    viewModelFactory = WeatherForecastPageViewModelFactory(context as Context)
+    viewModel = ViewModelProvider(requireActivity(), viewModelFactory).get(WeatherForecastPageViewModel::class.java)
+    viewModel.fetchWeatherForecastDays(arguments.keyword)
 
     adapter = ForecastDayAdapter {
       viewModel.setSelectedWeatherForecastDay(it)

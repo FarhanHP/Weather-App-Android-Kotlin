@@ -1,5 +1,6 @@
 package com.farhanhp.weatherapp.pages.city_detail
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,7 +27,7 @@ class CityDetailPage : SecondaryPage() {
   ): View? {
     arguments = CityDetailPageArgs.fromBundle(requireArguments())
     binding = DataBindingUtil.inflate(inflater, R.layout.page_city_detail, container, false)
-    viewModelFactory = CityDetailPageViewModelFactory(arguments.keyword)
+    viewModelFactory = CityDetailPageViewModelFactory(arguments.keyword, context as Context)
     viewModel = ViewModelProvider(this, viewModelFactory).get(CityDetailPageViewModel::class.java)
 
     cityDetailData = CityDetailData(viewModel, binding.cityDetailComponent, false, viewLifecycleOwner, {
