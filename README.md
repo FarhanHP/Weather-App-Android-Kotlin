@@ -3,3 +3,5 @@ Weather APP using WeatherAPI.com for mobile computing course 2nd assignment. Com
 
 - Name: Farhan Herdian Pradana
 - Nim: 1313618030
+
+demo: https://youtu.be/tSC3VpjhOMA
